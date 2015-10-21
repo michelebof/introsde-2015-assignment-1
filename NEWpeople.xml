@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<people>
+    <person id="0001">
+        <firstname>Michele</firstname>
+        <lastname>Bof</lastname>
+        <birthdate>1993-08-07</birthdate>
+        <healthprofile>
+            <lastupdate>2015-10-21T17:54:06.961+02:00</lastupdate>
+            <weight>80.0</weight>
+            <height>1.8</height>
+            <bmi>24.691358024691358</bmi>
+        </healthprofile>
+    </person>
+    <person id="0002">
+        <firstname>Andrea</firstname>
+        <lastname>Orla</lastname>
+        <birthdate>1993-05-21</birthdate>
+        <healthprofile>
+            <lastupdate>2015-10-21T17:54:07.086+02:00</lastupdate>
+            <weight>85.0</weight>
+            <height>1.9</height>
+            <bmi>23.545706371191137</bmi>
+        </healthprofile>
+    </person>
+    <person id="0003">
+        <firstname>Davide</firstname>
+        <lastname>Darrec</lastname>
+        <birthdate>1993-03-23</birthdate>
+        <healthprofile>
+            <lastupdate>2015-10-21T17:54:07.086+02:00</lastupdate>
+            <weight>70.0</weight>
+            <height>1.75</height>
+            <bmi>22.857142857142858</bmi>
+        </healthprofile>
+    </person>
+</people>

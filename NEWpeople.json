@@ -1,0 +1,36 @@
+{
+  "person" : [ {
+    "firstname" : "Michele",
+    "lastname" : "Bof",
+    "birthdate" : "1993-08-07",
+    "healthprofile" : {
+      "lastupdate" : "2015-10-21T17:54:08.368+02:00",
+      "weight" : 80.0,
+      "height" : 1.8,
+      "bmi" : 24.691358024691358
+    },
+    "id" : "0001"
+  }, {
+    "firstname" : "Andrea",
+    "lastname" : "Orla",
+    "birthdate" : "1993-05-21",
+    "healthprofile" : {
+      "lastupdate" : "2015-10-21T17:54:08.446+02:00",
+      "weight" : 85.0,
+      "height" : 1.9,
+      "bmi" : 23.545706371191137
+    },
+    "id" : "0002"
+  }, {
+    "firstname" : "Davide",
+    "lastname" : "Darrec",
+    "birthdate" : "1993-03-23",
+    "healthprofile" : {
+      "lastupdate" : "2015-10-21T17:54:08.446+02:00",
+      "weight" : 70.0,
+      "height" : 1.75,
+      "bmi" : 22.857142857142858
+    },
+    "id" : "0003"
+  } ]
+}

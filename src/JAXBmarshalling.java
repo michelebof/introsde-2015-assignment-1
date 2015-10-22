@@ -20,54 +20,46 @@ public class JAXBmarshalling {
 	public static void main(String[] args) throws Exception {
 		int argCount = args.length;
 		if (argCount == 0) {
-			System.out.println("I cannot marshalling, un-marshalling or create"
-					+ " json file if not write what would you do.");
+			System.out.println("I cannot marshalling, un-marshalling or create json file if not write what would you do.");
 		} else {
 			
 			String method = args[0];
 			JAXBContext jc = JAXBContext.newInstance(PeopleStore.class);
 			
 			if (method.equals("marshaling")) {
-				
 				newPerson();	
-		        Marshaller m = jc.createMarshaller();
-		        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-		        System.out.println("Marshalling into a XML file(NEWpeople.xml)..... ");
-		        m.marshal(people,new File("NEWpeople.xml")); // marshalling into a file
-		        System.out.println();
-		        System.out.println("NEWpeople.xml: ");
-		        System.out.println();
-		        m.marshal(people, System.out);	
-		        
+			        Marshaller m = jc.createMarshaller();
+			        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			        System.out.println("Marshalling into a XML file(NEWpeople.xml)..... ");
+			        m.marshal(people,new File("NEWpeople.xml")); // marshalling into a file
+			        System.out.println();
+			        System.out.println("NEWpeople.xml: ");
+			        System.out.println();
+			        m.marshal(people, System.out);	
 			}else if (method.equals("unmarshaling")){
-				
-		        System.out.println();
-		        System.out.println("Output from our XML File: ");
-		        Unmarshaller um = jc.createUnmarshaller();
-		        PeopleStore people = (PeopleStore) um.unmarshal(new FileReader("NEWpeople.xml"));
-		        List<Person> list = people.getData();
-		        for (Person person : list) {
-		        	System.out.println(person.toString());
-		        }
-		        
+			        System.out.println();
+			        System.out.println("Output from our XML File: ");
+			        Unmarshaller um = jc.createUnmarshaller();
+			        PeopleStore people = (PeopleStore) um.unmarshal(new FileReader("NEWpeople.xml"));
+			        List<Person> list = people.getData();
+			        for (Person person : list) {
+			        	System.out.println(person.toString());
+			        }
 			} else if (method.equals("json")){
-				
 				newPerson();			
 				ObjectMapper mapper = new ObjectMapper();
-		        JaxbAnnotationModule module = new JaxbAnnotationModule();
+		        	JaxbAnnotationModule module = new JaxbAnnotationModule();
 		        
 				mapper.registerModule(module);
 				mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
-		        mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
-		        System.out.println("Write into a JSON file(NEWpeople.json).... ");
-		        String result = mapper.writeValueAsString(people);
-		        mapper.writeValue(new File("NEWpeople.json"), people);
-		        System.out.println();
-		        System.out.println("NEWpeople.json: ");
-		        System.out.println();
-		        System.out.println(result);
-		        
-				
+			        mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
+			        System.out.println("Write into a JSON file(NEWpeople.json).... ");
+			        String result = mapper.writeValueAsString(people);
+			        mapper.writeValue(new File("NEWpeople.json"), people);
+			        System.out.println();
+			        System.out.println("NEWpeople.json: ");
+			        System.out.println();
+			        System.out.println(result);
 			} else {
 				System.out.println("The system did not find the method '"+method+"'");
 			}

@@ -31,9 +31,9 @@ How run the code
 ---------------------
 The code can be run simply execute in the terminal ```ant execute.evaluation```, with this istruction you can see all the results of all the tasks of this assignment. If you want see only one task you should write:
 
- - ```ant execute.all``` : for print all the people in the people.xml
- - ```ant execute.HPwithid``` : for print the HealtProfile of the person with PersonID='0005'
- - ```ant execute.peoplewithcond``` : for print all the people with weight > 90
- - ```ant execute.marshaling``` : for print, and save to NEWpeople.xml, three people present into PeopleStore class
- - ```ant execute.unmarshaling``` : for unmarshal the NEWpeople.xml 
- - ```ant execute.JSON``` : for print, and save to NEWpeople.json, three people present into PeopleStore class
+ - ```ant execute.all``` : to print all the people in the people.xml
+ - ```ant execute.HPwithid``` : to print the HealtProfile of the person with PersonID='0005'
+ - ```ant execute.peoplewithcond``` : to print all the people with weight > 90
+ - ```ant execute.marshaling``` : to print, and save to NEWpeople.xml, three people present into PeopleStore class
+ - ```ant execute.unmarshaling``` : to unmarshal the NEWpeople.xml 
+ - ```ant execute.JSON``` : to print, and save to NEWpeople.json, three people present into PeopleStore class

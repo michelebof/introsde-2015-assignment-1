@@ -49,10 +49,10 @@ public class HealthProfileReader {
 		 * @throws ParserConfigurationException 
 		 */
 		public static void main(String[] args)throws ParserConfigurationException, SAXException,
-        IOException, XPathExpressionException{
+									IOException, XPathExpressionException{
 			int argCount = args.length;
 			HealthProfileReader test = new HealthProfileReader();
-	        test.loadXML();
+	        	test.loadXML();
 			if (argCount == 0) {
 				System.out.println("Give me at least a method.");
 			} else {
@@ -76,47 +76,42 @@ public class HealthProfileReader {
 		}
 
 		private String getFirstname(String personId) throws XPathExpressionException{
-			XPathExpression expr = xpath.compile("/people/person[@id='" + personId
-					+ "']/firstname/text()");
-	        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
-	        return node.getTextContent();
+			XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']/firstname/text()");
+		        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+		        return node.getTextContent();
 		}
 		
 		private String getLastname(String personId) throws XPathExpressionException{
-			XPathExpression expr = xpath.compile("/people/person[@id='" + personId
-					+ "']/lastname/text()");
-	        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
-	        return node.getTextContent();
+			XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']/lastname/text()");
+		        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+		        return node.getTextContent();
 		}
 		
 		private String getBirth(String personId) throws XPathExpressionException{
-			XPathExpression expr = xpath.compile("/people/person[@id='" + personId
-					+ "']/birthdate/text()");
-	        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
-	        return node.getTextContent();
+			XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']/birthdate/text()");
+		        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+		        return node.getTextContent();
 		}
 		
 		private double getWeight(String personId) throws XPathExpressionException{
-			XPathExpression expr = xpath.compile("/people/person[@id='" + personId
-					+ "']/healthprofile/weight/text()");
-	        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
-	        return  Double.parseDouble(node.getTextContent());
+			XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']/healthprofile/weight/text()");
+		        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+		        return  Double.parseDouble(node.getTextContent());
 		}
 		
 		private double getHeight(String personId) throws XPathExpressionException{
-			XPathExpression expr = xpath.compile("/people/person[@id='" + personId
-					+ "']/healthprofile/height/text()");
-	        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
-	        return  Double.parseDouble(node.getTextContent());
+			XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']/healthprofile/height/text()");
+		        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+		        return  Double.parseDouble(node.getTextContent());
 		}
 		
 		private double getBmi(String personId) throws XPathExpressionException{
-			XPathExpression expr = xpath.compile("/people/person[@id='" + personId
-					+ "']/healthprofile/bmi/text()");
-	        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
-	        return Double.parseDouble(node.getTextContent());
+			XPathExpression expr = xpath.compile("/people/person[@id='" + personId + "']/healthprofile/bmi/text()");
+		        Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+		        return Double.parseDouble(node.getTextContent());
 		}	
 		
+		// function that display HealthProfile of the person with id=personid
 		private void displayHealthProfile(String personId) throws XPathExpressionException {
 			HelpProfile p = new HelpProfile();
 			p.setFirstname(this.getFirstname(personId));
@@ -124,27 +119,31 @@ public class HealthProfileReader {
 			p.setHeight(this.getHeight(personId));
 			p.setBmi(this.getBmi(personId));
 			System.out.println(p.HealthProfiletoString());
-		
 		}
 		
 		//Function that display all the people in the XML
 		private void displayAll() throws XPathExpressionException {
+			//Save all the people id in a NodeList nodes
 			XPathExpression expr = xpath.compile("//@id");
-	        NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-	        for(int i = 0; i< nodes.getLength();i++){
-	        	this.displayProfile(nodes.item(i).getTextContent());
-	        }
+		        NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+		        //for each node in nodes execute displayProfile function with id in node 
+		        for(int i = 0; i< nodes.getLength();i++){
+		        	this.displayProfile(nodes.item(i).getTextContent());
+		        }
 		}
 		
+		//Function that display all the people that fulfill the condition
 		private void displayProfilebyWeight(double weight, String condition) throws XPathExpressionException{
+			//Save all the people id in a NodeList nodes that fulfill the condition
 			XPathExpression expr = xpath.compile("//person[healthprofile/weight " + condition + "'" + weight + "']/@id");
-	        NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-	        for(int i = 0; i< nodes.getLength();i++){
-	        	this.displayProfile(nodes.item(i).getTextContent());
-	        }
+		        NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+		        //for each node in nodes execute displayProfile function with id in node 
+		        for(int i = 0; i< nodes.getLength();i++){
+		        	this.displayProfile(nodes.item(i).getTextContent());
+		        }
 		}
 		
-		
+		//Function that display the profile of the person given the personID
 		private void displayProfile(String personId) throws XPathExpressionException {
 			HelpProfile p = new HelpProfile();
 			p.setFirstname(this.getFirstname(personId));

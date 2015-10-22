@@ -29,11 +29,11 @@ With the  **JAXBmarshalling** class can marshal into NEWpeople.xml or create the
 
 How run the code 
 ---------------------
-The code can be run simply execute in the terminal execute.evaluation, with this istruction you can see all the results of all the tasks of this assignment. If you want see only one task you should write:
+The code can be run simply execute in the terminal ```ant execute.evaluation```, with this istruction you can see all the results of all the tasks of this assignment. If you want see only one task you should write:
 
- - execute.all : for print all the people in the people.xml
- - execute.HPwithid : for print the HealtProfile of the person with PersonID='0005'
- - execute.peoplewithcond : for print all the people with weight > 90
- - execute.marshaling : for print, and save to NEWpeople.xml, three people present into PeopleStore class
- - execute.unmarshaling : for unmarshal the NEWpeople.xml 
- - execute.JSON : for print, and save to NEWpeople.json, three people present into PeopleStore class
+ - ```ant execute.all``` : for print all the people in the people.xml
+ - ```ant execute.HPwithid``` : for print the HealtProfile of the person with PersonID='0005'
+ - ```ant execute.peoplewithcond``` : for print all the people with weight > 90
+ - ```ant execute.marshaling``` : for print, and save to NEWpeople.xml, three people present into PeopleStore class
+ - ```ant execute.unmarshaling``` : for unmarshal the NEWpeople.xml 
+ - ```ant execute.JSON``` : for print, and save to NEWpeople.json, three people present into PeopleStore class

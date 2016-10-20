@@ -125,22 +125,22 @@ public class HealthProfileReader {
 		private void displayAll() throws XPathExpressionException {
 			//Save all the people id in a NodeList nodes
 			XPathExpression expr = xpath.compile("//@id");
-		        NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-		        //for each node in nodes execute displayProfile function with id in node 
-		        for(int i = 0; i< nodes.getLength();i++){
-		        	this.displayProfile(nodes.item(i).getTextContent());
-		        }
+		    NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+		    //for each node in nodes execute displayProfile function with id in node 
+		    for(int i = 0; i< nodes.getLength();i++){
+		        this.displayProfile(nodes.item(i).getTextContent());
+		    }
 		}
 		
 		//Function that display all the people that fulfill the condition
 		private void displayProfilebyWeight(double weight, String condition) throws XPathExpressionException{
 			//Save all the people id in a NodeList nodes that fulfill the condition
 			XPathExpression expr = xpath.compile("//person[healthprofile/weight " + condition + "'" + weight + "']/@id");
-		        NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-		        //for each node in nodes execute displayProfile function with id in node 
-		        for(int i = 0; i< nodes.getLength();i++){
-		        	this.displayProfile(nodes.item(i).getTextContent());
-		        }
+		    NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+		    //for each node in nodes execute displayProfile function with id in node 
+		    for(int i = 0; i< nodes.getLength();i++){
+		        this.displayProfile(nodes.item(i).getTextContent());
+		    }
 		}
 		
 		//Function that display the profile of the person given the personID
